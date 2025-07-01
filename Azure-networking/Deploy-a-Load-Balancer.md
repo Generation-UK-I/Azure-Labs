@@ -61,7 +61,7 @@ First create a basic **Azure Virtual Network (VNet)**, deploy **VMs**, install a
 
 ## Deploy a Load Balancer
 
-### **1. Create an Azure Load Balancer**  
+### **Step 1: Create an Azure Load Balancer**  
 1. Sign in to the **Azure Portal**.
 2. Search for **Load Balancer** and click **Create**.
 3. Fill in the basic details:
@@ -72,13 +72,13 @@ First create a basic **Azure Virtual Network (VNet)**, deploy **VMs**, install a
    - **SKU:** Choose `Standard` for advanced features.
 4. Click **Review + Create** > **Create**.
 
-### **2. Set Up the Backend Pool**  
+### **Step 2: Set Up the Backend Pool**  
 1. Go to **WebApp-LB** > **Backend Pools** > **Add**.
 2. Name the backend pool (e.g., `WebServers-Pool`).
 3. Choose the VM **networking interfaces (NICs)** that will handle traffic.
 4. Click **Add** > **Save**.
 
-### **3. Create Health Probe**  
+### **Step 3: Create Health Probe**  
 1. Navigate to **Health Probes** > **Add**.
 2. Name the probe (e.g., `HTTP-HealthProbe`).
 3. Set the parameters:
@@ -88,7 +88,7 @@ First create a basic **Azure Virtual Network (VNet)**, deploy **VMs**, install a
    - **Unhealthy Threshold:** 2 failures before marking a VM down.
 4. Click **Add** > **Save**.
 
-### **4. Configure Load Balancer Rule**  
+### **Step 4: Configure Load Balancer Rule**  
 1. Go to **Load Balancer Rules** > **Add**.
 2. Set the rule parameters:
    - **Name:** `WebTrafficRule`
@@ -100,13 +100,13 @@ First create a basic **Azure Virtual Network (VNet)**, deploy **VMs**, install a
    > Sticky sessions allows you to direct returning visitors to the same target host each time they visit.
 3. Click **Add** > **Save**.
 
-### **5. Assign a Public IP (If Internet-Facing)**  
+### **Step 5: Assign a Public IP (If Internet-Facing)**  
 1. Go to **Frontend IP Configuration** > **Add**.
 2. Set **Public IP Type** to `Static` (recommended for stability).
 3. Click **Create New** > Assign a custom name.
 4. Click **OK** > **Save**.
 
-### **6. Test the Load Balancer**  
+### **Step 6: Test the Load Balancer**  
 Once deployed:
 - Get the **Load Balancer's Public IP** from the portal.
 - Try accessing your application via `http://<LoadBalancerIP>`.
@@ -117,5 +117,3 @@ Once deployed:
 - Ensure **backend VMs** are in the same **VNet** and **availability zone**.  
 - Fine-tune **Health Probes** to monitor real-time server health.  
 - Enable **Diagnostics & Logs** for performance tracking.  
-
----
